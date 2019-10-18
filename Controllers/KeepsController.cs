@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Controllers
@@ -28,13 +30,14 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
+    [Authorize]
     [HttpGet("/user")] //NOTE This route gets all keeps by the logged in user
     public ActionResult<IEnumerable<Keep>> GetUserKeeps()
     {
       try
       {
-        return Ok(_ks.GetUserKeeps());
+        string userId = HttpContext.User.FindFirstValue("Id");
+        return Ok(_ks.GetUserKeeps(userId));
       }
       catch (Exception e)
       {
