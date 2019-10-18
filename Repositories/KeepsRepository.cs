@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Dapper;
 using Keepr.Models;
 
 namespace Keepr.Repositories
@@ -13,29 +14,55 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    internal IEnumerable<Keep> Get()
+    public IEnumerable<Keep> Get()
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM keeps";
+      return _db.Query<Keep>(sql);
     }
 
-    internal Keep Get(int keepId)
+    public IEnumerable<Keep> GetUserKeeps(string userId)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM keeps WHERE userId = @userId";
+      return _db.Query<Keep>(sql, new { userId });
     }
 
-    internal int Create(Keep newKeep)
+    public Keep Get(int keepId)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM keeps WHERE id = @keepId";
+      return _db.QueryFirstOrDefault<Keep>(sql, new { keepId });
     }
 
-    internal void Edit(Keep keep)
+    public int Create(Keep newKeep)
     {
-      throw new NotImplementedException();
+      string sql = @"
+        INSERT INTO keeps
+        (name, description, img, isPrivate, views, shares, keeps, userId)
+        VALUES
+        (@Name, @Description, @Img, @IsPrivate, @Views, @Shares, @Keeps, @UserId);
+        SELECT LAST_INSERT_ID();";
+      return _db.ExecuteScalar<int>(sql, newKeep);
     }
 
-    internal void Remove(int keepId)
+    public void Edit(Keep keep)
     {
-      throw new NotImplementedException();
+      string sql = @"
+        UPDATE keeps
+        SET
+          name = @Name,
+          description = @Description,
+          img = @Img,
+          isPrivate = @IsPrivate,
+          views = @Views,
+          shares = @Shares,
+          keeps = @Keeps
+        WHERE id = @Id";
+      _db.Execute(sql, keep);
+    }
+
+    public void Remove(int keepId)
+    {
+      string sql = "DELETE FROM keeps WHERE id = @keepId";
+      _db.Execute(sql, new { keepId });
     }
   }
 }

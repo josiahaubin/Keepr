@@ -31,7 +31,7 @@ namespace Keepr.Controllers
       }
     }
     [Authorize]
-    [HttpGet("/user")] //NOTE This route gets all keeps by the logged in user
+    [HttpGet("user")] //NOTE This route gets all keeps by the logged in user
     public ActionResult<IEnumerable<Keep>> GetUserKeeps()
     {
       try
@@ -63,7 +63,8 @@ namespace Keepr.Controllers
     {
       try
       {
-        return Ok(_ks.Create(newKeep));
+        string userId = HttpContext.User.FindFirstValue("Id");
+        return Ok(_ks.Create(newKeep, userId));
       }
       catch (Exception e)
       {
