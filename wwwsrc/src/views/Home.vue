@@ -1,8 +1,10 @@
 <template>
-  <div class="home container-fluid">
-    <h1>Welcome Home {{user.username}}</h1>
-    <button v-if="user.id" @click="logout">logout</button>
-    <router-link v-else :to="{name: 'login'}">Login</router-link>
+  <div class="home mt-2">
+    <div class="row">
+      <div class="col-12">
+        <h1>Welcome Home {{user.username}}</h1>
+      </div>
+    </div>
     <div class="row">
       <Keeps v-for="keep in keeps" :key="keep.id" :keepProp="keep" class="mt-4" />
     </div>
@@ -27,8 +29,12 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
-    }
+    },
+    viewDashboard() {}
   },
   components: { Keeps }
 };
 </script>
+
+<style scoped>
+</style>
