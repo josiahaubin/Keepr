@@ -1,5 +1,15 @@
 <template>
-  <div class="KeepView"></div>
+  <div class="KeepView container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <img :src="keep.img" class="img-fluid" />
+        <h1>{{keep.name}}</h1>
+        <h5>{{keep.description}}</h5>
+        <hr />
+        <h6>Views: {{keep.views}} -- Keeps: {{keep.keeps}}</h6>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -9,7 +19,11 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    keep() {
+      return this.$store.state.activeKeep;
+    }
+  },
   methods: {},
   components: {}
 };
