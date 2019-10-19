@@ -36,7 +36,9 @@ export default {
     logout() {
       this.$store.dispatch("logout");
     },
-    viewDashboard() {}
+    viewDashboard() {
+      this.$router.push({ name: "dashboard" });
+    }
   },
   components: {}
 };
