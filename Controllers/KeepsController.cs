@@ -45,7 +45,7 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpGet("{keepId}")]
+    [HttpGet("{keepId}")] //NOTE This route gets a single keep
     public ActionResult<Keep> Get(int keepId)
     {
       try
@@ -58,7 +58,7 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpPost] //NOTE This route creats a new keep
+    [HttpPost] //NOTE This route creates a new keep
     public ActionResult<Keep> Post([FromBody] Keep newKeep)
     {
       try
@@ -98,8 +98,6 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
-
 
   }
 }
