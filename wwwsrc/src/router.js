@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 // @ts-ignore
 import Login from './views/Login.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +19,16 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/keep',
+      name: 'keep',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: function () {
+        return import(/* webpackChunkName: "keep" */ './views/KeepView.vue')
+      }
     }
   ]
 })
