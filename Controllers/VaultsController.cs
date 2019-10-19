@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Controllers
@@ -18,6 +19,7 @@ namespace Keepr.Controllers
       _vs = vs;
     }
 
+    [Authorize]
     [HttpGet] //NOTE This route gets user vaults
     public ActionResult<IEnumerable<Vault>> Get()
     {
@@ -32,6 +34,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpGet("{vaultId}")] //NOTE This route gets a vault by its id
     public ActionResult<Vault> Get(int vaultId)
     {
@@ -45,6 +48,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpPost] //NOTE This route creates a new vault
     public ActionResult<Vault> Post([FromBody] Vault newVault)
     {
@@ -59,6 +63,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpPut("{vaultId}")] //NOTE This route updates a vault
     public ActionResult<Vault> Put(int vaultId, [FromBody] Vault editVault)
     {
@@ -73,6 +78,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpDelete("{vaultId}")] //NOTE This route deletes a vault
     public ActionResult<string> Delete(int vaultId)
     {

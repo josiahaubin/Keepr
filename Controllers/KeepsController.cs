@@ -58,6 +58,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpPost] //NOTE This route creates a new keep
     public ActionResult<Keep> Post([FromBody] Keep newKeep)
     {
@@ -72,6 +73,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpPut("{keepId}")] //NOTE This route updates a keep
     public ActionResult<Keep> Put(int keepId, [FromBody] Keep editKeep)
     {
@@ -86,6 +88,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpDelete("{keepId}")] //NOTE This route deletes a keep
     public ActionResult<string> Delete(int keepId)
     {
