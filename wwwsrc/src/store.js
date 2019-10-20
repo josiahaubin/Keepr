@@ -84,6 +84,14 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error);
       }
+    },
+    async createKeep({ commit, dispatch }, payload) {
+      try {
+        let res = await api.post("keeps", payload);
+        dispatch('getKeeps')
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     //#endregion

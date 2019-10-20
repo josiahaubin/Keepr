@@ -58,14 +58,13 @@ namespace Keepr.Controllers
       }
     }
 
-    [Authorize]
     [HttpPost] //NOTE This route creates a new keep
     public ActionResult<Keep> Post([FromBody] Keep newKeep)
     {
       try
       {
-        string userId = HttpContext.User.FindFirstValue("Id");
-        return Ok(_ks.Create(newKeep, userId));
+        var id = HttpContext.User.FindFirstValue("Id");
+        return Ok(_ks.Create(newKeep, id));
       }
       catch (Exception e)
       {

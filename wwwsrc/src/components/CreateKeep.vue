@@ -11,10 +11,17 @@
           </div>
           <div class="modal-body">
             <!-- FORM -->
-            <form>
+            <form @submit.prevent="createKeep()">
               <div class="form-group">
                 <label for="name">Keep Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Name"
+                  required
+                  v-model="newKeep.name"
+                />
               </div>
               <div class="form-group">
                 <label for="description">Keep Description</label>
@@ -24,22 +31,35 @@
                   id="description"
                   placeholder="Description"
                   required
+                  v-model="newKeep.description"
                 />
               </div>
               <div class="form-group">
                 <label for="img">Keep Image</label>
-                <input type="text" class="form-control" id="img" placeholder="Image URL" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="img"
+                  placeholder="Image URL"
+                  required
+                  v-model="newKeep.img"
+                />
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value id="privacy" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="privacy"
+                  v-model="newKeep.isPrivate"
+                />
                 <label class="form-check-label" for="privacy">Do you want this keep set to private?</label>
               </div>
+              <button id="submit" type="submit" class="btn btn-primary">Save changes</button>
             </form>
             <!-- END OF FORM -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -52,10 +72,17 @@
 export default {
   name: "CreateKeep",
   data() {
-    return {};
+    return {
+      newKeep: {}
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    createKeep() {
+      this.$store.dispatch("createKeep", this.newKeep);
+      $("#close").click();
+    }
+  },
   components: {}
 };
 </script>

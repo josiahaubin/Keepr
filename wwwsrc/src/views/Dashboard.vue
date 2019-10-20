@@ -25,6 +25,12 @@
         <CreateVault />
       </div>
     </div>
+    <div class="row mt-3">
+      <h1>My Vaults</h1>
+    </div>
+    <div class="row mt-3">
+      <h1>My Keeps</h1>
+    </div>
   </div>
 </template>
 
