@@ -93,6 +93,7 @@ export default new Vuex.Store({
       try {
         let res = await api.post("keeps", payload);
         dispatch('getKeeps', res.data)
+        dispatch('getUserKeeps')
       } catch (error) {
         console.log(error);
       }
