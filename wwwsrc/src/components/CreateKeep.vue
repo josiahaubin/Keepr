@@ -83,13 +83,7 @@ export default {
   },
   methods: {
     createKeep() {
-      this.$store.dispatch("createKeep", {
-        name: this.newKeep.name,
-        description: this.newKeep.description,
-        img: this.newKeep.img,
-        isPrivate: this.newKeep.isPrivate,
-        userId: this.user.id
-      });
+      this.$store.dispatch("createKeep", this.newKeep);
       $("#close").click();
     }
   },
