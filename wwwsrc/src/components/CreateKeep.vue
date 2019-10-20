@@ -76,10 +76,20 @@ export default {
       newKeep: {}
     };
   },
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  },
   methods: {
     createKeep() {
-      this.$store.dispatch("createKeep", this.newKeep);
+      this.$store.dispatch("createKeep", {
+        name: this.newKeep.name,
+        description: this.newKeep.description,
+        img: this.newKeep.img,
+        isPrivate: this.newKeep.isPrivate,
+        userId: this.user.id
+      });
       $("#close").click();
     }
   },

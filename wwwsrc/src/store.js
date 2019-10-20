@@ -88,7 +88,7 @@ export default new Vuex.Store({
     async createKeep({ commit, dispatch }, payload) {
       try {
         let res = await api.post("keeps", payload);
-        dispatch('getKeeps')
+        dispatch('getKeeps', res.data)
       } catch (error) {
         console.log(error)
       }

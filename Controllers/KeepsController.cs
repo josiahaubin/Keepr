@@ -64,7 +64,7 @@ namespace Keepr.Controllers
       try
       {
         var id = HttpContext.User.FindFirstValue("Id");
-        return Ok(_ks.Create(newKeep, id));
+        return Ok(_ks.Create(newKeep));
       }
       catch (Exception e)
       {
