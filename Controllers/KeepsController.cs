@@ -58,6 +58,7 @@ namespace Keepr.Controllers
       }
     }
 
+    [Authorize]
     [HttpPost] //NOTE This route creates a new keep
     public ActionResult<Keep> Post([FromBody] Keep newKeep)
     {
