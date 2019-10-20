@@ -31,8 +31,9 @@ namespace Keepr.Services
       if (exists == null) { throw new Exception("Invalid ID"); }
       return exists;
     }
-    public Keep Create(Keep newKeep)
+    public Keep Create(Keep newKeep, string userId)
     {
+      newKeep.UserId = userId;
       int id = _repo.Create(newKeep);
       newKeep.Id = id;
       return newKeep;
