@@ -8,7 +8,14 @@
         <hr />
         <p>Views: {{keepProp.views}} - Keeps: {{keepProp.keeps}}</p>
         <button class="btn btn-secondary" @click="viewKeep">View</button>
-        <button class="btn btn-primary ml-2">Keep</button>
+        <button class="btn btn-primary ml-2" @click="showInput = !showInput">Keep</button>
+        <div v-if="showInput" class="mt-2">
+          <select>
+            <option disabled>Select a Vault</option>
+            <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
+          </select>
+          <button class="btn btn-success ml-1">Submit</button>
+        </div>
       </div>
     </div>
   </div>
@@ -19,10 +26,16 @@
 export default {
   name: "Keeps",
   data() {
-    return {};
+    return {
+      showInput: false
+    };
   },
   props: ["keepProp"],
-  computed: {},
+  computed: {
+    vaults() {
+      return this.$store.state.userVaults;
+    }
+  },
   methods: {
     viewKeep() {
       this.$store.dispatch("getKeepById", this.keepProp.id);

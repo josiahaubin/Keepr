@@ -17,6 +17,7 @@ export default {
   name: "home",
   mounted() {
     this.$store.dispatch("getKeeps");
+    this.$store.dispatch("getUserVaults");
   },
   computed: {
     user() {
