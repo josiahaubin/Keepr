@@ -24,10 +24,16 @@ export default {
     return {};
   },
   props: ["keepProp"],
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  },
   methods: {
     deleteKeep() {
-      this.$store.dispatch("deleteKeep", this.keepProp.id);
+      if (this.user.id == this.keepProp.userId) {
+        this.$store.dispatch("deleteKeep", this.keepProp.id);
+      }
     }
   },
   components: {}
