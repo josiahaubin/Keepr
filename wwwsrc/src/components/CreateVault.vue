@@ -5,7 +5,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Vault Creator</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              id="closing"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -60,7 +66,7 @@ export default {
   methods: {
     createVault() {
       this.$store.dispatch("createVault", this.newVault);
-      $("#close").click();
+      $("#closing").click();
     }
   },
   components: {}
