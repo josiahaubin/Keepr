@@ -60,6 +60,7 @@ export default {
         img: this.keepProp.img,
         keeps: (this.keepProp.keeps += 1)
       });
+      this.showInput = !this.showInput;
     }
   },
   components: {}
