@@ -7,8 +7,8 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views: {{keepProp.views}} - Keeps: {{keepProp.keeps}}</p>
-        <button class="btn btn-primary">Keep</button>
-        <button class="btn btn-secondary ml-1" @click="viewKeep">View</button>
+        <button class="btn btn-secondary" @click="viewKeep">View</button>
+        <button class="btn btn-primary ml-2">Keep</button>
       </div>
     </div>
   </div>
