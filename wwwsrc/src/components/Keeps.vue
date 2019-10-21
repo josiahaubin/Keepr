@@ -8,7 +8,7 @@
         <hr />
         <p>Views: {{keepProp.views}} - Keeps: {{keepProp.keeps}}</p>
         <button class="btn btn-secondary" @click="viewKeep">View</button>
-        <button class="btn btn-primary ml-2" @click="showInput = !showInput">Keep</button>
+        <button v-if="user.id" class="btn btn-primary ml-2" @click="showInput = !showInput">Keep</button>
         <div v-if="showInput" class="mt-2">
           <select v-model="selectedVault">
             <option disabled>Select a Vault</option>
@@ -35,6 +35,9 @@ export default {
   computed: {
     vaults() {
       return this.$store.state.userVaults;
+    },
+    user() {
+      return this.$store.state.user;
     }
   },
   methods: {
