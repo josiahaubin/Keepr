@@ -29,6 +29,7 @@
       <div class="col-12">
         <h1>My Vaults</h1>
       </div>
+      <Vaults v-for="vault in userVaults" :key="vault.id" :vaultProp="vault" />
     </div>
     <div class="row mt-3">
       <div class="col-12">
@@ -44,10 +45,12 @@
 import CreateKeep from "../components/CreateKeep";
 import CreateVault from "../components/CreateVault";
 import DashboardKeeps from "../components/DashboardKeeps";
+import Vaults from "../components/Vaults";
 export default {
   name: "Dashboard",
   mounted() {
     this.$store.dispatch("getUserKeeps");
+    this.$store.dispatch("getUserVaults");
   },
   data() {
     return {};
@@ -58,10 +61,13 @@ export default {
     },
     userKeeps() {
       return this.$store.state.userKeeps;
+    },
+    userVaults() {
+      return this.$store.state.userVaults;
     }
   },
   methods: {},
-  components: { CreateKeep, CreateVault, DashboardKeeps }
+  components: { CreateKeep, CreateVault, DashboardKeeps, Vaults }
 };
 </script>
 
