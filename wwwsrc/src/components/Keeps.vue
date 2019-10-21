@@ -52,6 +52,13 @@ export default {
         vaultId: this.selectedVault,
         keepId: this.keepProp.id
       });
+      this.$store.dispatch("updateKeepsTotal", {
+        id: this.keepProp.id,
+        views: this.keepProp.views,
+        name: this.keepProp.name,
+        img: this.keepProp.img,
+        keeps: (this.keepProp.keeps += 1)
+      });
     }
   },
   components: {}

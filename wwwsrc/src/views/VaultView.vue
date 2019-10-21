@@ -1,12 +1,20 @@
 <template>
   <div class="VaultView mt-2">
-    <h1>{{vault.name}}</h1>
-    <h6>{{vault.description}}</h6>
+    <div class="row">
+      <div class="col-12">
+        <h1>{{vault.name}}</h1>
+        <h6>{{vault.description}}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <VaultKeeps v-for="keep in vaultKeep" :key="keep.id" :keepProp="keep" />
+    </div>
   </div>
 </template>
 
 
 <script>
+import VaultKeeps from "../components/VaultKeeps";
 export default {
   name: "VaultView",
   mounted() {
@@ -24,7 +32,7 @@ export default {
     }
   },
   methods: {},
-  components: {}
+  components: { VaultKeeps }
 };
 </script>
 
