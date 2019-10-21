@@ -12,17 +12,19 @@
             />
             Keepr
           </a>
-          <button class="btn btn-success" @click="goHome()">Home</button>
-          <button v-if="user.id" @click="viewDashboard()" class="btn btn-dark ml-5">Dashboard</button>
-          <button v-if="user.id" @click="logout" class="btn btn-danger">Logout</button>
+          <div>
+            <button class="btn btn-success mx-2" @click="goHome()">Home</button>
+            <button v-if="user.id" @click="viewDashboard()" class="btn btn-dark mx-2">Dashboard</button>
+            <button v-if="user.id" @click="logout" class="btn btn-danger mx-2">Logout</button>
+            <button
+              v-else
+              class="btn btn-success"
+              type="button"
+              data-toggle="modal"
+              data-target="#LoginModal"
+            >Login</button>
+          </div>
           <!-- <router-link v-else :to="{name: 'login'}">Login</router-link> -->
-          <button
-            v-else
-            class="btn btn-success"
-            type="button"
-            data-toggle="modal"
-            data-target="#LoginModal"
-          >Login</button>
         </nav>
         <!-- END OF NAVBAR -->
       </div>
