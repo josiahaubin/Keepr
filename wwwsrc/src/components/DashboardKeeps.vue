@@ -10,6 +10,7 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
+        <button class="btn btn-danger" @click="deleteKeep()">Delete</button>
       </div>
     </div>
   </div>
@@ -24,7 +25,11 @@ export default {
   },
   props: ["keepProp"],
   computed: {},
-  methods: {},
+  methods: {
+    deleteKeep() {
+      this.$store.dispatch("deleteKeep", this.keepProp.id);
+    }
+  },
   components: {}
 };
 </script>

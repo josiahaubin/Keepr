@@ -122,6 +122,14 @@ export default new Vuex.Store({
         console.log(error)
       }
     },
+    async deleteKeep({ commit, dispatch }, payload) {
+      try {
+        let res = await api.delete(`keeps/${payload}`);
+        dispatch('getUserKeeps')
+      } catch (error) {
+        console.log(error)
+      }
+    },
 
     //#endregion
 
