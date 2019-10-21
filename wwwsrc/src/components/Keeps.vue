@@ -44,6 +44,7 @@ export default {
         id: this.keepProp.id,
         views: (this.keepProp.views += 1),
         name: this.keepProp.name,
+        keeps: this.keepProp.keeps,
         img: this.keepProp.img
       });
     },
