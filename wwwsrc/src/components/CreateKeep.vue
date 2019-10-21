@@ -54,7 +54,7 @@
                 />
                 <label class="form-check-label" for="privacy">Do you want this keep set to private?</label>
               </div>
-              <button id="submit" type="submit" class="btn btn-primary">Save changes</button>
+              <button id="submit" type="submit" class="btn btn-primary">Create Keep</button>
             </form>
             <!-- END OF FORM -->
           </div>

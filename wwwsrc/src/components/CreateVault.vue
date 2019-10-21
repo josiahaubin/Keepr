@@ -11,10 +11,17 @@
           </div>
           <div class="modal-body">
             <!-- FORM -->
-            <form>
+            <form @submit.prevent="createVault()">
               <div class="form-group">
                 <label for="name">Vault Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Name"
+                  required
+                  v-model="newVault.name"
+                />
               </div>
               <div class="form-group">
                 <label for="description">Vault Description</label>
@@ -24,14 +31,15 @@
                   id="description"
                   placeholder="Description"
                   required
+                  v-model="newVault.description"
                 />
               </div>
+              <button type="submit" class="btn btn-primary">Create Vault</button>
             </form>
             <!-- END OF FORM -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -44,10 +52,17 @@
 export default {
   name: "CreateVault",
   data() {
-    return {};
+    return {
+      newVault: {}
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    createVault() {
+      this.$store.dispatch("createVault", this.newVault);
+      $("#close").click();
+    }
+  },
   components: {}
 };
 </script>

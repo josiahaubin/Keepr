@@ -121,6 +121,14 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error)
       }
+    },
+    async createVault({ commit, dispatch }, payload) {
+      try {
+        let res = await api.post("vaults", payload);
+        dispatch('getUserVaults');
+      } catch (error) {
+        console.log(error)
+      }
     }
     //#endregion
   }
