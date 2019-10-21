@@ -51,11 +51,11 @@ namespace Keepr.Services
       _repo.Edit(keep);
       return keep;
     }
-    public string Remove(int keepId)
+    public string Remove(int keepId, string userId)
     {
       Keep exists = _repo.Get(keepId);
-      if (exists == null) { throw new Exception("Invalid ID"); }
-      _repo.Remove(keepId);
+      if (exists == null || exists.UserId != userId) { throw new Exception("Invalid ID"); }
+      _repo.Remove(keepId, userId);
       return "Successfully Removed.";
     }
   }

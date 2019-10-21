@@ -59,10 +59,10 @@ namespace Keepr.Repositories
       _db.Execute(sql, keep);
     }
 
-    public void Remove(int keepId)
+    public void Remove(int keepId, string userId)
     {
-      string sql = "DELETE FROM keeps WHERE id = @keepId";
-      _db.Execute(sql, new { keepId });
+      string sql = "DELETE FROM keeps WHERE id = @keepId AND userId = @userId";
+      _db.Execute(sql, new { keepId, userId });
     }
   }
 }

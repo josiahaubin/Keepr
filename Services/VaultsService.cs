@@ -44,10 +44,10 @@ namespace Keepr.Services
     }
 
     [Authorize]
-    public string Remove(int vaultId)
+    public string Remove(int vaultId, string userId)
     {
       Vault exists = _repo.Get(vaultId);
-      if (exists == null) { throw new Exception("Invalid ID"); }
+      if (exists == null || exists.UserId != userId) { throw new Exception("Invalid ID"); }
       _repo.Remove(vaultId);
       return "Successfully Removed.";
     }
