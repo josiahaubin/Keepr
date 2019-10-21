@@ -7,7 +7,7 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
-        <button class="btn btn-danger" @click="deleteKeep()">Delete</button>
+        <button class="btn btn-danger" @click="removeKeep()">Remove from Vault</button>
       </div>
     </div>
   </div>
@@ -18,11 +18,23 @@
 export default {
   name: "VaultKeeps",
   props: ["keepProp"],
+  mounted() {},
   data() {
     return {};
   },
-  computed: {},
-  methods: {},
+  computed: {
+    vault() {
+      return this.$store.state.activeVault;
+    }
+  },
+  methods: {
+    removeKeep() {
+      this.$store.dispatch("removeFromVault", {
+        keepId: this.keepProp.id,
+        vaultId: this.vault.id
+      });
+    }
+  },
   components: {}
 };
 </script>

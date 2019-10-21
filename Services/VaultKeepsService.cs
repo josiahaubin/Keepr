@@ -30,7 +30,7 @@ namespace Keepr.Services
     {
       VaultKeep exists = _repo.Check(vaultKeep.VaultId, vaultKeep.KeepId);
       if (exists == null) { throw new Exception("Invalid ID"); }
-      _repo.Remove(vaultKeep.Id);
+      _repo.Remove(exists.Id);
       return "Successfully deleted.";
     }
   }

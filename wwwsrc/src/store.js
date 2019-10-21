@@ -196,6 +196,15 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error)
       }
+    },
+    async removeFromVault({ commit, dispatch }, payload) {
+      try {
+        let res = await api.put("vaultkeeps", payload)
+        console.log(res.data)
+        dispatch("getVaultKeeps", payload.vaultId)
+      } catch (error) {
+        console.log(error);
+      }
     }
     //#endregion
   }
