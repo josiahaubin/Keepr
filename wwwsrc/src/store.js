@@ -158,6 +158,14 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error);
       }
+    },
+    async deleteVault({ commit, dispatch }, payload) {
+      try {
+        let res = await api.delete(`vaults/${payload}`);
+        dispatch('getUserVaults')
+      } catch (error) {
+        console.log(error)
+      }
     }
     //#endregion
   }

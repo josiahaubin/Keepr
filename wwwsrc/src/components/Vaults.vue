@@ -4,6 +4,7 @@
       <div class="card-body">
         <h5 class="card-title" @click="viewVault()">{{vaultProp.name}}</h5>
         <p class="card-text">{{vaultProp.description}}</p>
+        <button class="btn btn-danger" @click="deleteVault()">Delete</button>
       </div>
     </div>
   </div>
@@ -21,6 +22,9 @@ export default {
   methods: {
     viewVault() {
       this.$store.dispatch("getVaultById", this.vaultProp.id);
+    },
+    deleteVault() {
+      this.$store.dispatch("deleteVault", this.vaultProp.id);
     }
   },
   components: {}
