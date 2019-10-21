@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Controllers
@@ -17,6 +18,7 @@ namespace Keepr.Controllers
       _vs = vs;
     }
 
+    [Authorize]
     [HttpGet("{vaultId}")]
     public ActionResult<IEnumerable<Keep>> Get(int vaultId)
     {
@@ -30,7 +32,7 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult<VaultKeep> Create([FromBody] VaultKeep vaultKeep)
     {
@@ -44,7 +46,7 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
+    [Authorize]
     [HttpPut]
     public ActionResult<string> Delete([FromBody] VaultKeep vaultKeep)
     {

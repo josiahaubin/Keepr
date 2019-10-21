@@ -10,11 +10,11 @@
         <button class="btn btn-secondary" @click="viewKeep">View</button>
         <button class="btn btn-primary ml-2" @click="showInput = !showInput">Keep</button>
         <div v-if="showInput" class="mt-2">
-          <select>
+          <select v-model="selectedVault">
             <option disabled>Select a Vault</option>
             <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
           </select>
-          <button class="btn btn-success ml-1">Submit</button>
+          <button class="btn btn-success ml-1" @click="addToVault()">Submit</button>
         </div>
       </div>
     </div>
@@ -27,7 +27,8 @@ export default {
   name: "Keeps",
   data() {
     return {
-      showInput: false
+      showInput: false,
+      selectedVault: ""
     };
   },
   props: ["keepProp"],
@@ -44,6 +45,12 @@ export default {
         views: (this.keepProp.views += 1),
         name: this.keepProp.name,
         img: this.keepProp.img
+      });
+    },
+    addToVault() {
+      this.$store.dispatch("addToVault", {
+        vaultId: this.selectedVault,
+        keepId: this.keepProp.id
       });
     }
   },
