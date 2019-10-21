@@ -110,6 +110,14 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
+    async updateViews({ commit, dispatch }, payload) {
+      try {
+        let res = await api.put(`keeps/${payload.id}`, payload);
+        dispatch('getKeeps', res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
 
     //#endregion
 

@@ -6,7 +6,7 @@
         <h1>{{keep.name}}</h1>
         <h5>{{keep.description}}</h5>
         <hr />
-        <h6>Views: {{keep.views}} -- Keeps: {{keep.keeps}}</h6>
+        <h6>Views: {{keep.views + 1}} -- Keeps: {{keep.keeps}}</h6>
       </div>
     </div>
   </div>

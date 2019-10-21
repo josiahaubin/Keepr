@@ -26,6 +26,12 @@ export default {
   methods: {
     viewKeep() {
       this.$store.dispatch("getKeepById", this.keepProp.id);
+      this.$store.dispatch("updateViews", {
+        id: this.keepProp.id,
+        views: (this.keepProp.views += 1),
+        name: this.keepProp.name,
+        img: this.keepProp.img
+      });
     }
   },
   components: {}
