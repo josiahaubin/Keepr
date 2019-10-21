@@ -4,7 +4,9 @@
       <div class="card-body">
         <h5 class="card-title" @click="viewVault()">{{vaultProp.name}}</h5>
         <p class="card-text">{{vaultProp.description}}</p>
-        <button class="btn btn-danger" @click="deleteVault()">Delete</button>
+        <button class="btn btn-danger" @click="deleteVault()">
+          <i class="fas fa-trash"></i>
+        </button>
       </div>
     </div>
   </div>

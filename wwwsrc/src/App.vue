@@ -13,9 +13,17 @@
             Keepr
           </a>
           <div>
-            <button class="btn btn-success mx-2" @click="goHome()">Home</button>
-            <button v-if="user.id" @click="viewDashboard()" class="btn btn-dark mx-2">Dashboard</button>
-            <button v-if="user.id" @click="logout" class="btn btn-danger mx-2">Logout</button>
+            <button class="btn btn-outline-dark mx-2" @click="goHome()">
+              <i class="fas fa-home"></i>
+            </button>
+            <button
+              v-if="user.id"
+              @click="viewDashboard()"
+              class="btn btn-outline-secondary mx-2"
+            >Dashboard</button>
+            <button v-if="user.id" @click="logout" class="btn btn-outline-danger mx-2">
+              <i class="fas fa-power-off"></i>
+            </button>
             <button
               v-else
               class="btn btn-success"

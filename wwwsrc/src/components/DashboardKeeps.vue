@@ -10,7 +10,9 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
-        <button class="btn btn-danger" @click="deleteKeep()">Delete</button>
+        <button class="btn btn-danger" @click="deleteKeep()">
+          <i class="fas fa-trash"></i>
+        </button>
       </div>
     </div>
   </div>
