@@ -1,5 +1,5 @@
 <template>
-  <div class="DashboardKeeps col-4">
+  <div class="DashboardKeeps col-4 mb-2">
     <div class="card">
       <img :src="keepProp.img" class="card-img-top img-fluid" />
       <div class="card-body">

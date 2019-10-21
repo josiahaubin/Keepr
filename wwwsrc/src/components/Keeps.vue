@@ -6,7 +6,9 @@
         <h5 class="card-title" @click="viewKeep">{{keepProp.name}}</h5>
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
-        <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
+        <p>Views: {{keepProp.views}} - Keeps: {{keepProp.keeps}}</p>
+        <button class="btn btn-primary">Keep</button>
+        <button class="btn btn-secondary ml-1" @click="viewKeep">View</button>
       </div>
     </div>
   </div>
@@ -32,8 +34,4 @@ export default {
 
 
 <style scoped>
-.card-title:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
 </style>

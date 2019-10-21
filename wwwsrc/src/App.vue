@@ -12,6 +12,7 @@
             />
             Keepr
           </a>
+          <button class="btn btn-success" @click="goHome()">Home</button>
           <button v-if="user.id" @click="viewDashboard()" class="btn btn-dark ml-5">Dashboard</button>
           <button v-if="user.id" @click="logout" class="btn btn-danger">Logout</button>
           <router-link v-else :to="{name: 'login'}">Login</router-link>
@@ -38,6 +39,9 @@ export default {
     },
     viewDashboard() {
       this.$router.push({ name: "dashboard" });
+    },
+    goHome() {
+      this.$router.push({ name: "home" });
     }
   },
   components: {}

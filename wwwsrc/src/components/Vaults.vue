@@ -1,5 +1,5 @@
 <template>
-  <div class="Vaults col-6">
+  <div class="Vaults col-6 mb-2">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{vaultProp.name}}</h5>
