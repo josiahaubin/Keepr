@@ -5,7 +5,10 @@
         <div class="card shadow-lg">
           <img :src="keep.img" class="card-img-top img-fluid" />
           <div class="card-body">
-            <h5 class="card-title">{{keep.name}}</h5>
+            <h5 class="card-title">
+              {{keep.name}}
+              <i v-if="keep.isPrivate == true" class="fas fa-lock"></i>
+            </h5>
             <p class="card-text">{{keep.description}}</p>
             <hr />
             <p>Views: {{keep.views + 1}} - Keeps: {{keep.keeps}}</p>

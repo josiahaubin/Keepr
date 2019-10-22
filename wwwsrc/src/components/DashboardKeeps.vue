@@ -65,7 +65,8 @@ export default {
         views: (this.keepProp.views += 1),
         keeps: this.keepProp.keeps,
         name: this.keepProp.name,
-        img: this.keepProp.img
+        img: this.keepProp.img,
+        isPrivate: this.keepProp.isPrivate
       });
     }
   },
