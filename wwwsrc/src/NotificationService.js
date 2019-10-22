@@ -6,7 +6,7 @@ export default class NotificationService {
       type: "success",
       timer,
       showConfirmButton: false,
-      position: "top-right",
+      position: "top",
       toast: true
     });
   }
@@ -31,7 +31,7 @@ export default class NotificationService {
       type: "error",
       timer: 7000,
       showConfirmButton: false,
-      position: "top-right",
+      position: "top-end",
       toast: true
     })
   }
