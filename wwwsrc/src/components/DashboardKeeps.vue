@@ -13,6 +13,9 @@
         <button class="btn btn-dark mx-2" v-if="keepProp.isPrivate == true" @click="makePublic()">
           <i class="fas fa-unlock"></i>
         </button>
+        <button class="btn btn-dark mr-2" @click="viewKeep()">
+          <i class="fas fa-eye"></i>
+        </button>
         <button class="btn btn-danger" @click="deleteKeep()">
           <i class="fas fa-trash"></i>
         </button>
@@ -54,6 +57,16 @@ export default {
           isPrivate: this.keepProp.isPrivate == false
         });
       }
+    },
+    viewKeep() {
+      this.$store.dispatch("getKeepById", this.keepProp.id);
+      this.$store.dispatch("updateViews", {
+        id: this.keepProp.id,
+        views: (this.keepProp.views += 1),
+        keeps: this.keepProp.keeps,
+        name: this.keepProp.name,
+        img: this.keepProp.img
+      });
     }
   },
   components: {}
