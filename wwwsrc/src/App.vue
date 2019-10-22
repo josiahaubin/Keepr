@@ -16,7 +16,11 @@
             <button class="btn btn-dark mx-2" @click="goHome()">
               <i class="fas fa-home"></i>
             </button>
-            <button v-if="user.id" @click="viewDashboard()" class="btn btn-success mx-2">Dashboard</button>
+            <button
+              v-if="user.id"
+              @click="viewDashboard()"
+              class="btn btn-success mx-2"
+            >{{user.username}}'s Dashboard</button>
             <button v-if="user.id" @click="logout" class="btn btn-danger mx-2">
               <i class="fas fa-power-off"></i>
             </button>

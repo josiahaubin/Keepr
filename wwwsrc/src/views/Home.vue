@@ -1,8 +1,8 @@
 <template>
   <div class="home mt-2">
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <h1>{{user.username}} Welcome To Creepr Keepr</h1>
+        <h1>Welcome To Creepr Keepr</h1>
         <h5>The place for all things Minecraft and gaming</h5>
       </div>
     </div>
