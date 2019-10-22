@@ -31,4 +31,7 @@ export default {
 
 
 <style scoped>
+.KeepView {
+  min-height: 100vh;
+}
 </style>

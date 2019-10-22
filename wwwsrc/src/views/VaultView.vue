@@ -38,4 +38,7 @@ export default {
 
 
 <style scoped>
+.VaultView {
+  min-height: 100vh;
+}
 </style>
