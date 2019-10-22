@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-light border border-dark rounded mt-1">
           <a class="navbar-brand">
             <img
               src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c2f2.png"
@@ -70,7 +70,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
-  background-color: #6ed65d;
+  background-color: #8ed95b;
 }
 
 #nav {
@@ -88,5 +88,8 @@ export default {
 
 .navbar-brand {
   font-size: 33px;
+}
+nav {
+  background-color: #bfeaa3;
 }
 </style>
