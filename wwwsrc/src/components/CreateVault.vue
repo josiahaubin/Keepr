@@ -40,7 +40,7 @@
                   v-model="newVault.description"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Create Vault</button>
+              <button type="submit" class="btn btn-success">Create Vault</button>
             </form>
             <!-- END OF FORM -->
           </div>
