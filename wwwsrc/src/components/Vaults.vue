@@ -14,6 +14,7 @@
 
 
 <script>
+import NotificationService from "../NotificationService";
 export default {
   name: "Vaults",
   props: ["vaultProp"],
@@ -25,8 +26,10 @@ export default {
     viewVault() {
       this.$store.dispatch("getVaultById", this.vaultProp.id);
     },
-    deleteVault() {
-      this.$store.dispatch("deleteVault", this.vaultProp.id);
+    async deleteVault() {
+      if (await NotificationService.delete()) {
+        this.$store.dispatch("deleteVault", this.vaultProp.id);
+      }
     }
   },
   components: {}

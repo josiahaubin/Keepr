@@ -23,6 +23,7 @@
 
 
 <script>
+import NotificationService from "../NotificationService";
 export default {
   name: "DashboardKeeps",
   data() {
@@ -35,17 +36,15 @@ export default {
     }
   },
   methods: {
-    deleteKeep() {
-      if (this.user.id == this.keepProp.userId) {
-        this.$store.dispatch("deleteKeep", this.keepProp.id);
+    async deleteKeep() {
+      if (await NotificationService.delete()) {
+        if (this.user.id == this.keepProp.userId) {
+          this.$store.dispatch("deleteKeep", this.keepProp.id);
+        }
       }
     },
-    makePublic() {
-      if (
-        window.confirm(
-          "Are you sure you want to make this public? You cannot reverse this."
-        )
-      ) {
+    async makePublic() {
+      if (await NotificationService.makePublic()) {
         this.$store.dispatch("updateViews", {
           id: this.keepProp.id,
           views: this.keepProp.views,

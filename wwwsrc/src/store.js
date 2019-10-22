@@ -136,7 +136,6 @@ export default new Vuex.Store({
       try {
         let res = await api.delete(`keeps/${payload}`);
         dispatch('getUserKeeps')
-        NotificationService.toast("Keep successfully deleted")
       } catch (error) {
         console.log(error)
       }
@@ -183,7 +182,6 @@ export default new Vuex.Store({
       try {
         let res = await api.delete(`vaults/${payload}`);
         dispatch('getUserVaults')
-        NotificationService.toast("Vault successfully deleted")
       } catch (error) {
         console.log(error)
       }
