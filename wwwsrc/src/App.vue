@@ -75,6 +75,7 @@ export default {
   text-align: center;
   color: black;
   background-color: #8ed95b;
+  min-height: 100vh;
 }
 
 #nav {

@@ -1,12 +1,16 @@
 <template>
   <div class="KeepView container-fluid">
     <div class="row">
-      <div class="col-12">
-        <img :src="keep.img" class="img-fluid" />
-        <h1>{{keep.name}}</h1>
-        <h5>{{keep.description}}</h5>
-        <hr />
-        <h6>Views: {{keep.views + 1}} -- Keeps: {{keep.keeps}}</h6>
+      <div class="card mx-auto">
+        <div class="card shadow-lg">
+          <img :src="keep.img" class="card-img-top img-fluid" />
+          <div class="card-body">
+            <h5 class="card-title">{{keep.name}}</h5>
+            <p class="card-text">{{keep.description}}</p>
+            <hr />
+            <p>Views: {{keep.views + 1}} - Keeps: {{keep.keeps}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -33,5 +37,8 @@ export default {
 <style scoped>
 .KeepView {
   min-height: 100vh;
+}
+.card {
+  background-color: #bfeaa3;
 }
 </style>
