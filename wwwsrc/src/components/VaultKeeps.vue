@@ -7,7 +7,7 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
-        <button class="btn btn-primary mr-2" @click="viewKeep()">
+        <button class="btn btn-dark mr-2" @click="viewKeep()">
           <i class="far fa-eye"></i>
         </button>
         <button class="btn btn-danger" @click="removeKeep()">

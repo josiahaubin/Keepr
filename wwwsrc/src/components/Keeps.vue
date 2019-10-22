@@ -7,10 +7,10 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views: {{keepProp.views}} - Keeps: {{keepProp.keeps}}</p>
-        <button class="btn btn-secondary" @click="viewKeep">
+        <button class="btn btn-dark" @click="viewKeep">
           <i class="fas fa-eye"></i>
         </button>
-        <button v-if="user.id" class="btn btn-primary ml-2" @click="showInput = !showInput">
+        <button v-if="user.id" class="btn btn-success ml-2" @click="showInput = !showInput">
           <i class="far fa-save"></i>
         </button>
         <div v-if="showInput" class="mt-2">
