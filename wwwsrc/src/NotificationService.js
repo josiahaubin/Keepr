@@ -118,4 +118,84 @@ export default class NotificationService {
     })
   }
 
+  static goToVault() {
+    return new Promise((resolve, reject) => {
+      const swalWithBootstrapButtons = swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success ml-2',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Do you want to go to that vault?',
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, take me away!',
+        cancelButtonText: 'No, I want to keep keeping!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.value) {
+          swalWithBootstrapButtons.fire(
+            'Confirmed!',
+            'Follow us!',
+            'success'
+          )
+          resolve(true)
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Keep on keeping!',
+            'success'
+          )
+          resolve(false)
+        }
+      })
+    })
+  }
+
+  static remove() {
+    return new Promise((resolve, reject) => {
+      const swalWithBootstrapButtons = swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success ml-2',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure you want to remove this Keep from your Vault?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, remove it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.value) {
+          swalWithBootstrapButtons.fire(
+            'Confirmed!',
+            'It has been removed.',
+            'success'
+          )
+          resolve(true)
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'It is safe.',
+            'error'
+          )
+          resolve(false)
+        }
+      })
+    })
+  }
+
 }

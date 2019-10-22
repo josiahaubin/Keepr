@@ -193,7 +193,9 @@ export default new Vuex.Store({
       try {
         let res = await api.post("vaultkeeps", payload)
         NotificationService.toast("Successfully added to vault")
-        dispatch('getVaultById', res.data.vaultId)
+        if (await NotificationService.goToVault()) {
+          dispatch('getVaultById', res.data.vaultId)
+        }
       } catch (error) {
         NotificationService.toastError("No Vault selected");
         console.log(error)
