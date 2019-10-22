@@ -13,11 +13,11 @@
             <!-- FORM -->
             <form @submit.prevent="createKeep()">
               <div class="form-group">
-                <label for="name">Keep Name</label>
+                <label for="keepname">Keep Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="name"
+                  id="keepname"
                   placeholder="Name"
                   required
                   v-model="newKeep.name"

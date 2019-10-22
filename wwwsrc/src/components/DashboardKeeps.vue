@@ -10,6 +10,9 @@
         <p class="card-text">{{keepProp.description}}</p>
         <hr />
         <p>Views:{{keepProp.views}} - Keeps:{{keepProp.keeps}}</p>
+        <button class="btn btn-dark mx-2" v-if="keepProp.isPrivate == true" @click="makePublic()">
+          <i class="fas fa-unlock"></i>
+        </button>
         <button class="btn btn-danger" @click="deleteKeep()">
           <i class="fas fa-trash"></i>
         </button>
@@ -35,6 +38,22 @@ export default {
     deleteKeep() {
       if (this.user.id == this.keepProp.userId) {
         this.$store.dispatch("deleteKeep", this.keepProp.id);
+      }
+    },
+    makePublic() {
+      if (
+        window.confirm(
+          "Are you sure you want to make this public? You cannot reverse this."
+        )
+      ) {
+        this.$store.dispatch("updateViews", {
+          id: this.keepProp.id,
+          views: this.keepProp.views,
+          name: this.keepProp.name,
+          keeps: this.keepProp.keeps,
+          img: this.keepProp.img,
+          isPrivate: this.keepProp.isPrivate == false
+        });
       }
     }
   },

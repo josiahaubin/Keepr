@@ -122,6 +122,7 @@ export default new Vuex.Store({
       try {
         let res = await api.put(`keeps/${payload.id}`, payload);
         dispatch('getKeeps', res.data)
+        dispatch('getUserKeeps')
       } catch (error) {
         console.log(error)
       }
