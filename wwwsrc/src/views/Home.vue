@@ -3,7 +3,7 @@
     <div class="row my-4">
       <div class="col-12">
         <h1>Welcome To Creepr Keepr</h1>
-        <h5>The place for all things Minecraft and gaming</h5>
+        <h5>The place for all things Minecraft, gaming, and more...</h5>
       </div>
     </div>
     <div class="row">
