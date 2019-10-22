@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light">
           <a class="navbar-brand">
             <img
               src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c2f2.png"
@@ -13,15 +13,11 @@
             Keepr
           </a>
           <div>
-            <button class="btn btn-outline-dark mx-2" @click="goHome()">
+            <button class="btn btn-dark mx-2" @click="goHome()">
               <i class="fas fa-home"></i>
             </button>
-            <button
-              v-if="user.id"
-              @click="viewDashboard()"
-              class="btn btn-outline-secondary mx-2"
-            >Dashboard</button>
-            <button v-if="user.id" @click="logout" class="btn btn-outline-danger mx-2">
+            <button v-if="user.id" @click="viewDashboard()" class="btn btn-success mx-2">Dashboard</button>
+            <button v-if="user.id" @click="logout" class="btn btn-danger mx-2">
               <i class="fas fa-power-off"></i>
             </button>
             <button
@@ -73,7 +69,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
+  background-color: #6ed65d;
 }
 
 #nav {

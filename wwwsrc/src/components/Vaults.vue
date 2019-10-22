@@ -1,6 +1,6 @@
 <template>
   <div class="Vaults col-6 mb-2">
-    <div class="card">
+    <div class="card shadow-lg">
       <div class="card-body">
         <h5 class="card-title" @click="viewVault()">{{vaultProp.name}}</h5>
         <p class="card-text">{{vaultProp.description}}</p>
@@ -38,5 +38,8 @@ export default {
 .card-title:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 </style>

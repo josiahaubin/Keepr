@@ -1,6 +1,6 @@
 <template>
   <div class="VaultKeeps col-6 mt-2">
-    <div class="card">
+    <div class="card shadow-lg">
       <img :src="keepProp.img" class="card-img-top img-fluid" />
       <div class="card-body">
         <h5 class="card-title">{{keepProp.name}}</h5>
@@ -56,4 +56,7 @@ export default {
 
 
 <style scoped>
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+}
 </style>
