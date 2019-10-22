@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
 import AuthService from './AuthService'
+import NotificationService from './NotificationService'
 
 Vue.use(Vuex)
 
@@ -67,7 +68,9 @@ export default new Vuex.Store({
         let user = await AuthService.Login(creds)
         commit('setUser', user)
         router.push({ name: "home" })
+        NotificationService.toast("Login Successful")
       } catch (e) {
+        NotificationService.toastLoginError(e)
         console.warn(e.message)
       }
     },
@@ -76,6 +79,7 @@ export default new Vuex.Store({
         let success = await AuthService.Logout()
         if (!success) { }
         commit('resetState')
+        NotificationService.toast("Successfully Logged Out")
         router.push({ name: "home" })
       } catch (e) {
         console.warn(e.message)
@@ -106,6 +110,7 @@ export default new Vuex.Store({
         let res = await api.post("keeps", payload);
         dispatch('getKeeps', res.data)
         dispatch('getUserKeeps')
+        NotificationService.toast("Keep successfully created")
       } catch (error) {
         console.log(error);
       }
@@ -131,6 +136,7 @@ export default new Vuex.Store({
       try {
         let res = await api.delete(`keeps/${payload}`);
         dispatch('getUserKeeps')
+        NotificationService.toast("Keep successfully deleted")
       } catch (error) {
         console.log(error)
       }
@@ -159,6 +165,7 @@ export default new Vuex.Store({
       try {
         let res = await api.post("vaults", payload);
         dispatch('getUserVaults');
+        NotificationService.toast("Vault successfully created")
       } catch (error) {
         console.log(error)
       }
@@ -176,6 +183,7 @@ export default new Vuex.Store({
       try {
         let res = await api.delete(`vaults/${payload}`);
         dispatch('getUserVaults')
+        NotificationService.toast("Vault successfully deleted")
       } catch (error) {
         console.log(error)
       }
@@ -186,7 +194,9 @@ export default new Vuex.Store({
     async addToVault({ commit, dispatch }, payload) {
       try {
         let res = await api.post("vaultkeeps", payload)
+        NotificationService.toast("Successfully added to vault")
       } catch (error) {
+        NotificationService.toastError("No Vault selected");
         console.log(error)
       }
     },
@@ -201,8 +211,8 @@ export default new Vuex.Store({
     async removeFromVault({ commit, dispatch }, payload) {
       try {
         let res = await api.put("vaultkeeps", payload)
-        console.log(res.data)
         dispatch("getVaultKeeps", payload.vaultId)
+        NotificationService.toast("Keep successfully removed from vault.")
       } catch (error) {
         console.log(error);
       }
