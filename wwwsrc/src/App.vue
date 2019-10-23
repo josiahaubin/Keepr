@@ -5,10 +5,10 @@
         <nav class="navbar navbar-light border border-dark rounded mt-1">
           <a class="navbar-brand">
             <img
-              src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c2f2.png"
+              src="http://www.drodd.com/images15/letter-k26.jpg"
               width="50"
               height="50"
-              class="d-inline-block align-top"
+              class="d-inline-block align-top border border-dark"
             />
             Keepr
           </a>

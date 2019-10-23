@@ -2,8 +2,7 @@
   <div class="home mt-2">
     <div class="row my-4">
       <div class="col-12">
-        <h1>Welcome To Creepr Keepr</h1>
-        <h5>The place for all things Minecraft, gaming, and more...</h5>
+        <h1>Welcome To Keepr</h1>
       </div>
     </div>
     <div class="row">
