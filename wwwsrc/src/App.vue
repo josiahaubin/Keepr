@@ -32,7 +32,6 @@
               data-target="#LoginModal"
             >Login</button>
           </div>
-          <!-- <router-link v-else :to="{name: 'login'}">Login</router-link> -->
         </nav>
         <!-- END OF NAVBAR -->
       </div>
